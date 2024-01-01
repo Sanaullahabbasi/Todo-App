@@ -1,6 +1,7 @@
  
  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
- import {getFirestore, collection, addDoc, serverTimestamp, query, where, onSnapshot, orderBy, updateDoc, doc   } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+ import {getFirestore, collection, addDoc, serverTimestamp, query, where, onSnapshot, 
+    orderBy, updateDoc, doc, deleteDoc} from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 
 
@@ -29,5 +30,6 @@
     onSnapshot,
     orderBy,
     updateDoc,
-    doc
+    doc, 
+    deleteDoc 
  }

@@ -1,4 +1,4 @@
-import{ collection, addDoc, db, serverTimestamp, query, where, onSnapshot, orderBy, updateDoc, doc }from "./firebase.js"
+import{ collection, addDoc, db, serverTimestamp, query, where, onSnapshot, orderBy, updateDoc, doc, deleteDoc  }from "./firebase.js"
 
 let input = document.getElementById("input");
 let addBtn = document.getElementById("addBtn");
@@ -43,9 +43,15 @@ const showTodo = async(val, id) => {
     `;
    let delBtn = document.querySelectorAll("#delBtn");
    let editBtn = document.querySelectorAll("#editBtn");
-editBtn.forEach(val => {
+    editBtn.forEach(val => {
     val.addEventListener("click", e =>{
         updateTodo(e)
+    })
+    
+})
+delBtn.forEach(v=>{
+    v.addEventListener("click", e=>{
+        delTodo(e)
     })
 })
 
@@ -65,3 +71,9 @@ const updateTodo = async (e)=>{
     });
 }
 
+
+const delTodo = async (e) =>{
+   let delInput = e.target.parentElement.previousElementSibling.parentElement.getAttribute("id")
+   
+    await deleteDoc(doc(db, "todo", delInput));
+}
