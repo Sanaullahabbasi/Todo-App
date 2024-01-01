@@ -13,8 +13,8 @@ body {
   height: 400px;
   border-radius: 14px;
   /* border: 1px solid red; */
-  box-shadow: 0 2px 5px 1px rgba(64,60,67,.16);
-
+  box-shadow: 0 2px 5px 1px rgba(64, 60, 67, 0.16);
+  box-sizing: border-box;
 }
 #header-sec {
   width: 100%;
@@ -31,14 +31,34 @@ body {
   height: 50px;
   font-size: 20px;
   border: 1px solid transparent;
-  box-shadow: 0 2px 5px 1px rgba(64,60,67,.16);
+  box-shadow: 0 2px 5px 1px rgba(64, 60, 67, 0.16);
   border-radius: 12px;
   outline: none;
   padding-left: 18px;
 }
-.btn-success{
+.btn-success {
   height: 50px;
 }
-#field-sec{
+#field-sec {
   width: 100%;
+}
+
+.todoList{
+  width: 100%;
+}
+ul{
+  list-style: none;
+
+}
+
+ul > li {
+  display: flex;
+  align-items: center;  
+  gap: 4;
+}
+ul > li > p {
+  font-size: 20px;
+  text-align: left;
+  margin: 5px 20px 10px 5px;
+  font-weight: bold;
 }
