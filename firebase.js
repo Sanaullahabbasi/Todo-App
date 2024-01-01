@@ -1,6 +1,6 @@
  
  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
- import {getFirestore, collection, addDoc, serverTimestamp  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+ import {getFirestore, collection, addDoc, serverTimestamp, query, where, onSnapshot   } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 
 
@@ -23,5 +23,8 @@
     collection, 
     addDoc,
     db,
-    serverTimestamp
+    serverTimestamp,
+    query, 
+    where, 
+    onSnapshot
  }

@@ -1,10 +1,20 @@
-import{ collection, addDoc, db, serverTimestamp }from "./firebase.js"
+import{ collection, addDoc, db, serverTimestamp, query, where, onSnapshot }from "./firebase.js"
 
 let input = document.getElementById("input");
 let addBtn = document.getElementById("addBtn");
 let todoList = document.getElementById("todoList");
 
-const addTask = async () => {
+const getTodo = async()=>{
+   
+      const q = query(collection(db, "todo"), orderBy('timestamp','desc'));
+        const unsubscribe = onSnapshot(q, (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+        cities.push(doc.data().name);
+  });
+});
+}
+
+const addTask = () => {
   if (input.value.trim() === "") {
     alert("please write about task");
   } else {
@@ -23,7 +33,6 @@ const addTask = async () => {
         task: input.value,
         timestamp: serverTimestamp()
       });
-      console.log("Document written with ID: ", todoTasks.id);
     input.value = "";
   }
 };
